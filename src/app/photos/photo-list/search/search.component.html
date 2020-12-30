@@ -1,0 +1,13 @@
+<div class="text-center">
+  <form>
+    <i aria-hidden="true" class="fa fa-search mr-3 my-5"></i>
+      <input
+          class="col-3 p-2"
+          type="search"
+          placeholder="search..."
+          autofocus
+          (keyup)="debounce.next(keyUp($event))"
+          [value] ="value"
+          >
+  </form>
+</div>

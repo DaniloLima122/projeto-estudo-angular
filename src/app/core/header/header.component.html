@@ -1,0 +1,36 @@
+<header class="fixed-top px-4">
+  <nav class="navbar navbar-light bg-white py-4">
+
+    <a class="navbar-brand">
+      <i tabindex="0" (keyup.space)="menu.toggle()" (click)="menu.toggle()" class="fa fa-bars mr-4"></i>
+      ALURAPIC
+  </a>
+
+  <ap-menu #menu >
+      <ul class="mt-4 list-unstyled">
+          <li class="pl-4">
+              <a showIfLogged [routerLink]="['p','add']">Upload</a>
+          </li>
+      </ul>
+ </ap-menu>
+    <div
+      *ngIf="user$ | async as user; else login"
+      class="d-flex align-items-center"
+    >
+      <i class="fa fa-user-circle fa-2x"></i>
+      <a class="mx-3">{{ user.name }}</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+    <ng-template #login>
+      <span class="navbar-text">
+        <a [routerLink]="['']">Please, login!</a>
+      </span>
+    </ng-template>
+  </nav>
+  <div class="fixed-top">
+    <ap-loading></ap-loading>
+    <div class="mt-5 d-flex justify-content-center">
+      <ap-alert></ap-alert>
+    </div>
+  </div>
+</header>

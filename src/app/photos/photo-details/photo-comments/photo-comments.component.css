@@ -1,0 +1,13 @@
+.comment-list{
+  height: 32vh;
+  overflow-y: scroll;
+}
+
+.comment-list::-webkit-scrollbar{
+  width: 5px;
+  background: #eee;
+}
+
+.comment-list::-webkit-scrollbar-thumb{
+  background: #ddd;
+}

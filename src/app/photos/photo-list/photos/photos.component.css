@@ -1,0 +1,28 @@
+p{
+  transform: translateY(20px);
+  opacity: 0;
+  animation: animatexto .5s linear forwards;
+}
+
+@keyframes animatexto{
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.image{
+  transition: 1s ease;
+}
+
+.image:hover{
+  opacity: .85;
+}
+
+img,div,li{
+
+  transition: .5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: animatexto 1s ease-in-out forwards;
+}

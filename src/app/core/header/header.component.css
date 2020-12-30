@@ -1,0 +1,26 @@
+
+a,span{
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+}
+
+a::first-letter{
+  text-transform: uppercase;
+}
+
+
+.alertcontainer{
+  opacity: 0;
+  transform: translateY(100px);
+  animation: alertAnimation .5s ease-in-out forwards;
+}
+
+@keyframes alertAnimation{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

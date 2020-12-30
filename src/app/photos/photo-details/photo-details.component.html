@@ -1,0 +1,28 @@
+<div class="bg-white container" *ngIf="photo$ | async as photo">
+  <div class="row d-flex justify-content-around">
+    <div class="col-lg-6">
+      <ap-photo [url]="photo.url" [description]="photo.description"></ap-photo>
+    </div>
+
+    <div class="col-lg-6 p-4">
+      <small>
+        <p class="text-left break-word">{{ photo.description }}</p>
+        <div class="text-left mb-4">
+          <i class="fa fa-heart-o fa-2x my-2 mr-2 pull-left" showIfLogged (click)="like(photo)"> {{ photo.likes }} </i>
+          <i class="fa fa-comment-o fa-2x my-2 mr-2 ml-2"></i>{{ photo.comments }}
+          <i (click)="remove()" class="fa fa-trash-o fa-2x my-2 pull-right text-danger" photoOwnerOnly [ownedPhoto]="photo"></i>
+        </div>
+        <hr />
+      </small>
+
+      <ap-photo-comments
+        *ngIf="photo.allowComments; else warning"
+        [photoId]="photo.id"
+      >
+      </ap-photo-comments>
+      <ng-template #warning>
+        <p>User has disabled comments for this photo</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
